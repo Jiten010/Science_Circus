@@ -1,10 +1,48 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { db } from "./db";
+import * as schema from "../shared/schema";
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Initialize database
+(async () => {
+  try {
+    log("Initializing database...", "db");
+    
+    // Create tables directly using simplified SQL
+    await Promise.all([
+      db.execute(/* sql */`CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        username TEXT NOT NULL,
+        password TEXT NOT NULL
+      )`),
+      db.execute(/* sql */`CREATE TABLE IF NOT EXISTS contacts (
+        id SERIAL PRIMARY KEY,
+        name TEXT NOT NULL,
+        email TEXT NOT NULL,
+        subject TEXT NOT NULL,
+        message TEXT NOT NULL,
+        created_at TEXT NOT NULL
+      )`),
+      db.execute(/* sql */`CREATE TABLE IF NOT EXISTS registrations (
+        id SERIAL PRIMARY KEY,
+        name TEXT NOT NULL,
+        email TEXT NOT NULL,
+        event_id TEXT NOT NULL,
+        phone TEXT,
+        created_at TEXT NOT NULL
+      )`)
+    ]);
+    
+    log("Database tables created successfully", "db");
+  } catch (error: any) {
+    log(`Database initialization error: ${error.message}`, "db");
+  }
+})();
 
 app.use((req, res, next) => {
   const start = Date.now();

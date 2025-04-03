@@ -3,6 +3,8 @@ import {
   contacts, type Contact, type InsertContact,
   registrations, type Registration, type InsertRegistration 
 } from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 export interface IStorage {
   // User methods
@@ -22,99 +24,71 @@ export interface IStorage {
   createRegistration(registration: InsertRegistration): Promise<Registration>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<number, User>;
-  private contacts: Map<number, Contact>;
-  private registrations: Map<number, Registration>;
-  private userCurrentId: number;
-  private contactCurrentId: number;
-  private registrationCurrentId: number;
-
-  constructor() {
-    this.users = new Map();
-    this.contacts = new Map();
-    this.registrations = new Map();
-    this.userCurrentId = 1;
-    this.contactCurrentId = 1;
-    this.registrationCurrentId = 1;
-  }
-
+// Implementation with database storage
+export class DatabaseStorage implements IStorage {
   // User methods
   async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
+    const results = await db.select().from(users).where(eq(users.id, id));
+    return results.length > 0 ? results[0] : undefined;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+    const results = await db.select().from(users).where(eq(users.username, username));
+    return results.length > 0 ? results[0] : undefined;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.userCurrentId++;
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+    const results = await db.insert(users).values(insertUser).returning();
+    return results[0];
   }
   
   // Contact methods
   async getContacts(): Promise<Contact[]> {
-    return Array.from(this.contacts.values());
+    return await db.select().from(contacts);
   }
   
   async getContact(id: number): Promise<Contact | undefined> {
-    return this.contacts.get(id);
+    const results = await db.select().from(contacts).where(eq(contacts.id, id));
+    return results.length > 0 ? results[0] : undefined;
   }
   
   async createContact(insertContact: InsertContact): Promise<Contact> {
-    const id = this.contactCurrentId++;
     const created_at = new Date().toISOString();
-    
-    // Create contact object explicitly without spreading to avoid potential type issues
-    const contact: Contact = { 
-      id,
-      created_at,
-      name: insertContact.name,
-      email: insertContact.email,
-      subject: insertContact.subject,
-      message: insertContact.message
+    const contactToInsert = {
+      ...insertContact,
+      created_at
     };
     
-    this.contacts.set(id, contact);
-    return contact;
+    const results = await db.insert(contacts).values(contactToInsert).returning();
+    return results[0];
   }
   
   // Registration methods
   async getRegistrations(): Promise<Registration[]> {
-    return Array.from(this.registrations.values());
+    return await db.select().from(registrations);
   }
   
   async getRegistrationsByEvent(eventId: string): Promise<Registration[]> {
-    return Array.from(this.registrations.values())
-      .filter(registration => registration.event_id === eventId);
+    return await db.select().from(registrations).where(eq(registrations.event_id, eventId));
   }
   
   async getRegistration(id: number): Promise<Registration | undefined> {
-    return this.registrations.get(id);
+    const results = await db.select().from(registrations).where(eq(registrations.id, id));
+    return results.length > 0 ? results[0] : undefined;
   }
   
   async createRegistration(insertRegistration: InsertRegistration): Promise<Registration> {
-    const id = this.registrationCurrentId++;
     const created_at = new Date().toISOString();
-    
-    // Create registration object explicitly without spreading to avoid type issues
-    const registration: Registration = { 
-      id,
+    const registrationToInsert = {
+      ...insertRegistration,
       created_at,
-      name: insertRegistration.name,
-      email: insertRegistration.email,
-      event_id: insertRegistration.event_id,
       phone: insertRegistration.phone ?? null // Use nullish coalescing to handle undefined
     };
     
-    this.registrations.set(id, registration);
-    return registration;
+    const results = await db.insert(registrations).values(registrationToInsert).returning();
+    return results[0];
   }
 }
 
-export const storage = new MemStorage();
+// Use DatabaseStorage instead of MemStorage
+export const storage = new DatabaseStorage();
