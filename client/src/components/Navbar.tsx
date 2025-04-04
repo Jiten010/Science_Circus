@@ -37,7 +37,7 @@ export default function Navbar() {
     }`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <img src="https://i.postimg.cc/pVwhhzfh/image.png" alt="Event Logo" className="w-12 h-12 object-contain"/>
+          <img src="https://i.postimg.cc/MG9dbqxL/logo-3.png" alt="Event Logo" className="w-12 h-12 object-contain"/>
           <span className="text-xl font-bold">Science Circus</span>
         </Link>
         
