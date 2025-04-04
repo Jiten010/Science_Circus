@@ -37,13 +37,7 @@ export default function Navbar() {
     }`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <div className="relative w-10 h-10">
-            <div className="absolute inset-0 bg-primary rounded-full opacity-70"></div>
-            <div className="absolute inset-1 bg-[#33CCFF] rounded-full opacity-70"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="font-bold text-lg text-white">SC</span>
-            </div>
-          </div>
+          <img src="https://drive.google.com/file/d/1qDIDsnbCVf9UIZsEjYoF-3kEYVuf5_BP/view?usp=sharing" alt="Science Circus Logo" className="w-12 h-12 object-contain" />
           <span className="text-xl font-bold">Science Circus</span>
         </Link>
         
