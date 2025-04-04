@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import logo from '@/assets/logo-3.png';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,7 +38,7 @@ export default function Navbar() {
     }`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <img src="https://i.postimg.cc/MG9dbqxL/logo-3.png" alt="Event Logo" className="w-12 h-12 object-contain"/>
+          <img src={logo} alt="Event Logo" className="w-12 h-12 object-contain"/>
           <span className="text-xl font-bold">Science Circus</span>
         </Link>
         
