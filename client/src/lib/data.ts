@@ -4,28 +4,28 @@ export const events = [
     title: "Anti-Quiz",
     description: "A mind-bending quiz that challenges your physics knowledge in unexpected ways. Think you know science? Think again!",
     duration: "2 Hours",
-    image: "https://images.unsplash.com/photo-1606326608690-4e0281b1e588?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://postimg.cc/p5vY00Xf",
     actionText: "Register"
   },
   {
     title: "Physics Squid Game",
     description: "Survive a series of physics-based challenges that test your understanding of mechanics, energy, and problem-solving.",
     duration: "3 Hours",
-    image: "https://images.unsplash.com/photo-1624948465027-6f9b51067557?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://postimg.cc/kVtpzp9z",
     actionText: "Register"
   },
   {
     title: "Math Tricks Stalls",
     description: "Explore fascinating mathematical tricks, illusions, and puzzles through interactive stalls and demonstrations.",
     duration: "Ongoing",
-    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://postimg.cc/T5XMtXDt",
     actionText: "Visit"
   },
   {
     title: "Treasure Hunt",
     description: "Follow scientific clues and solve physics-based puzzles to find hidden treasures across the event grounds.",
     duration: "4 Hours",
-    image: "https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    image: "https://postimg.cc/2bQX8L1x",
     actionText: "Register"
   }
 ];
