@@ -37,7 +37,7 @@ export default function Navbar() {
     }`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <img src="https://drive.google.com/file/d/1qDIDsnbCVf9UIZsEjYoF-3kEYVuf5_BP/view?usp=sharing" alt="Science Circus Logo" className="w-12 h-12 object-contain" />
+          <img src="https://drive.google.com/uc?export=view&id=1qDIDsnbCVf9UIZsEjYoF-3kEYVuf5_BP" alt="Event Logo" />
           <span className="text-xl font-bold">Science Circus</span>
         </Link>
         
