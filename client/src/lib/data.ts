@@ -4,28 +4,28 @@ export const events = [
     title: "Anti-Quiz",
     description: "A mind-bending quiz that challenges your physics knowledge in unexpected ways. Think you know science? Think again!",
     duration: "2 Hours",
-    image: "https://postimg.cc/p5vY00Xf",
+    image: "https://i.postimg.cc/p5vY00Xf/anti-quiz.png",
     actionText: "Register"
   },
   {
     title: "Physics Squid Game",
     description: "Survive a series of physics-based challenges that test your understanding of mechanics, energy, and problem-solving.",
     duration: "3 Hours",
-    image: "https://postimg.cc/kVtpzp9z",
+    image: "https://i.postimg.cc/kVtpzp9z/squid.png",
     actionText: "Register"
   },
   {
     title: "Math Tricks Stalls",
     description: "Explore fascinating mathematical tricks, illusions, and puzzles through interactive stalls and demonstrations.",
     duration: "Ongoing",
-    image: "https://postimg.cc/T5XMtXDt",
+    image: "https://i.postimg.cc/D0Svyvy3/stalls.png",
     actionText: "Visit"
   },
   {
     title: "Treasure Hunt",
     description: "Follow scientific clues and solve physics-based puzzles to find hidden treasures across the event grounds.",
     duration: "4 Hours",
-    image: "https://postimg.cc/2bQX8L1x",
+    image: "https://i.postimg.cc/2bQX8L1x/treasure-hunt.png",
     actionText: "Register"
   }
 ];
