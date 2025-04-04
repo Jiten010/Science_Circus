@@ -32,34 +32,34 @@ export const events = [
 
 export const galleryImages = [
   {
-    src: "https://images.unsplash.com/photo-1581093458791-9d3fd7570b21?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    src: "https://i.postimg.cc/XpMTW3XL/IMG-4811.jpg"/*,
     title: "Physics Workshop",
-    description: "Interactive demonstration of quantum principles"
+    description: "Interactive demonstration of quantum principles"*/
   },
   {
-    src: "https://images.unsplash.com/photo-1576319155264-99536e0be1ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    src: "https://i.postimg.cc/wRk5nh7S/IMG-4901.jpg"/*,
     title: "Mathematical Patterns",
-    description: "Exploring geometry in nature and technology"
+    description: "Exploring geometry in nature and technology"*/
   },
   {
-    src: "https://images.unsplash.com/photo-1554475900-0a0350e3fc7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    src: "https://i.postimg.cc/pp23rCY5/IMG-4883.jpg"/*,
     title: "Team Challenge",
-    description: "Students collaborating on physics problems"
+    description: "Students collaborating on physics problems"*/
   },
   {
-    src: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    src: "https://i.postimg.cc/K47dmwLy/IMG-4884.jpg"/*,
     title: "Light Experiments",
-    description: "Exploring the properties of light and color"
+    description: "Exploring the properties of light and color"*/
   },
   {
-    src: "https://images.unsplash.com/photo-1628595351029-c2bf17511435?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    src: "https://i.postimg.cc/tZWNN0yR/IMG-4930.jpg"/*,
     title: "Robotics Display",
-    description: "Showcasing technology and engineering principles"
+    description: "Showcasing technology and engineering principles"*/
   },
   {
-    src: "https://images.unsplash.com/photo-1517976487492-5750f3195933?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    src: "https://i.postimg.cc/XZFsQBk0/20240228080854-IMG-5403.jpg"/*,
     title: "Interactive Display",
-    description: "Hands-on learning about cosmic phenomena"
+    description: "Hands-on learning about cosmic phenomena"*/
   }
 ];
 
